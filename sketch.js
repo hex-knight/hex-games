@@ -13,7 +13,7 @@ function preload(){
 }
 
 function setup() {
-    createCanvas(600, 900);
+    createCanvas(600, 800);
     bird = new Bird();
     pipes.push(new Pipes());
     clouds.push(new Clouds());
