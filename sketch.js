@@ -24,6 +24,7 @@ function setup() {
 
 
 function draw() {
+    
     background(150, 150, 255);
     if (!bird.isDead) {
         if (frameCount % 150 == 0) {
@@ -32,7 +33,7 @@ function draw() {
         if (frameCount % 120 == 0) {
             pipes.push(new Pipes());
             score++;
-            score>=1?wink.play():null
+            start?wink.play():null
             bestScore = max(bestScore, score)
         }
     }
@@ -54,6 +55,11 @@ function draw() {
                 play.play();
             }
         }
+        // if (touchStarted()) {
+        //         start = true;
+        //         play.play();
+        //         touchEnded();
+        // }
     }else{
         for (i = pipes.length - 1; i > 0; i--) {
             pipes[i].show();
@@ -99,9 +105,28 @@ function showScore() {
         text(`Score: ${score >= 0 ? score : 0}`, width / 3, height / 3 + 50);
         text(`Best: ${bestScore}`, width / 3, height / 3 + 80);
         textSize(20);
-        text("Press R to Restart", width / 3, height / 3 + 100);
+        text("Press R / touch to Restart", width / 4, height / 3 + 100);
     }
 
+}
+
+function touchStarted(event){
+    if(!start){
+        start=true;
+        play.play();
+    }else{
+        if(!bird.isDead){
+            bird.jump();
+            flap.play();
+        }else{
+            pipes = [];
+            pipes.push(new Pipes());
+            score = -1;
+            play.play();
+            bird.reborn();
+        }
+    }
+    return false;
 }
 
 function keyPressed() {

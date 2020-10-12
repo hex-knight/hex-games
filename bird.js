@@ -49,12 +49,16 @@ function Bird () {
         }else{
             if(keyIsPressed){
                 if(key == 'r'){
-                    this.isDead = false;
-                    this.velocity=0;
-                    this.y=height/2;
+                    this.reborn();
                 }
             }
         }
+    }
+
+    this.reborn = function(){
+        this.isDead = false;
+        this.velocity=0;
+        this.y=height/2;
     }
 
     this.fall = function(){
