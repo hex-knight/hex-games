@@ -70,10 +70,10 @@ function draw() {
             } else {
                 if (keyIsPressed) {
                     if (key == 'r') {
-                        play.play();
                         pipes = [];
                         pipes.push(new Pipes());
                         score = -1;
+                        play.play();
                         break;
                     }
                 }

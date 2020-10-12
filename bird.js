@@ -1,5 +1,6 @@
 var g = 1;
 var upG = -21;
+
 function Bird () {
     this.y = height/2;
     this.x = width/4;
