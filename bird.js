@@ -46,13 +46,14 @@ function Bird () {
                 this.y = height;
                 this.velocity = 0;
             }
-        }else{
-            if(keyIsPressed){
-                if(key == 'r'){
-                    this.reborn();
-                }
-            }
         }
+        // else{
+        //     if(keyIsPressed){
+        //         if(key == 'r'){
+        //             this.reborn();
+        //         }
+        //     }
+        // }
     }
 
     this.reborn = function(){

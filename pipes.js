@@ -1,8 +1,9 @@
 function Pipes(){
     this.x = width;
-    this.top = random(height/4)*3;
-    this.sep = 200;
+    this.top = random(height/20,height/4*3);
+    this.sep = height/5;
     this.w = 60;
+    this.point = 1;
     //this.bottom = random(height/2);
 
     this.show = function(){
@@ -18,6 +19,10 @@ function Pipes(){
 
     this.update = function(){
         this.x-=4;
+    }
+
+    this.getPoint = function(){
+        return this.point>0?this.point--:0;
     }
 
     this.hitBird = function(bird){
