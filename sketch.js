@@ -29,7 +29,7 @@ function setup() {
             displayHeight * .90);
         mode = "pc";
     } else {
-        createCanvas(displayWidth * .90,
+        createCanvas(displayWidth,
             displayHeight * .90);
         mode = "mobile";
     }
