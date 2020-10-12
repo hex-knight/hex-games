@@ -13,7 +13,13 @@ function preload(){
 }
 
 function setup() {
-    createCanvas(370, 700);
+    if(displayWidth > displayHeight){
+        createCanvas(displayWidth,
+            displayHeight);
+    }else{
+        createCanvas(displayWidth,
+            displayHeight);
+    }
     bird = new Bird();
     pipes.push(new Pipes());
     clouds.push(new Clouds());
@@ -52,7 +58,7 @@ function draw() {
         if (keyIsPressed) {
             if (key == ' ') {
                 start = true;
-                play.play();
+                //play.play();
             }
         }
         // if (touchStarted()) {
@@ -113,16 +119,16 @@ function showScore() {
 function touchStarted(event){
     if(!start){
         start=true;
-        play.play();
+        //play.play();
     }else{
         if(!bird.isDead){
             bird.jump();
-            flap.play();
+            //flap.play();
         }else{
             pipes = [];
             pipes.push(new Pipes());
             score = -1;
-            play.play();
+            //play.play();
             bird.reborn();
         }
     }
