@@ -13,7 +13,7 @@ function preload(){
 }
 
 function setup() {
-    createCanvas(100, 500);
+    createCanvas(370, 700);
     bird = new Bird();
     pipes.push(new Pipes());
     clouds.push(new Clouds());
@@ -46,9 +46,9 @@ function draw() {
     }
     if (!start) {
         bird.show();
-        textSize(50);
+        textSize(width/7);
         fill(0);
-        text("Press Space to Start", width /10, height / 3);
+        text("Press Space\nTouch", width /10, height / 3);
         if (keyIsPressed) {
             if (key == ' ') {
                 start = true;
@@ -94,11 +94,11 @@ function draw() {
 
 function showScore() {
     if (!bird.isDead) {
-        textSize(30);
+        textSize(width/8);
         fill(0);
         text(`Score: ${score >= 0 ? score : 0}`, width / 3, height / 8);
     } else {
-        textSize(50);
+        textSize(width/9);
         fill(0);
         text("GAME OVER", width / 4, height / 3);
         textSize(25);
