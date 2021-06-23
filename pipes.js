@@ -1,8 +1,8 @@
 function Pipes(){
     this.x = width;
     this.top = random(height/20,height/4*3);
-    this.sep = height/5;
-    this.w = 60;
+    this.sep = height/4;
+    this.w =90;
     this.point = 1;
     //this.bottom = random(height/2);
 
@@ -18,7 +18,12 @@ function Pipes(){
     }
 
     this.update = function(){
-        this.x-=4;
+        
+        this.x-=7;
+    }
+
+    this.offScreen = function(){
+        return this.x < -this.w;
     }
 
     this.getPoint = function(){
@@ -26,13 +31,12 @@ function Pipes(){
     }
 
     this.hitBird = function(bird){
-        if((bird.y < this.top || bird.y > this.top+this.sep)
-        && (bird.x > this.x && bird.x<this.x+this.w)){
-            return true;
+        if(bird.y < this.top+15 || bird.y+15 > this.top+this.sep){
+            if(bird.x > this.x && bird.x < this.x+this.w){
+                return true;
+            }
         }
-        else{
-            return false;
-        }
+        return false;
     }
 
     this.randomize = function(){
